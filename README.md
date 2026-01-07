@@ -351,5 +351,4 @@ MIT License - Feel free to use and modify for your workshops!
 
 Built for academic faculty learning to integrate AI into their institutions.
 
-**Workshop Author:** [Your Name]
-**Contact:** [Your Email]
+**Workshop Author:** Naveen Bhat

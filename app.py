@@ -99,7 +99,7 @@ def load_vector_store(data_folder: str, force_reindex: bool = False):
     # OPTION: PERSISTENT STORE (faster startup for large datasets)
     # =========================================================================
     # Set to True to enable persistent storage (auto-indexes on first run)
-    USE_PERSISTENT_STORE = False
+    USE_PERSISTENT_STORE = True
 
     if USE_PERSISTENT_STORE:
         persist_path = Path(__file__).parent / "chroma_db" / data_folder
@@ -118,7 +118,8 @@ def load_vector_store(data_folder: str, force_reindex: bool = False):
                 collection_name=f"course_advisor_{data_folder}"
             )
             st.sidebar.success("Loaded from persistent store")
-            return vectorstore, 0, ["(loaded from disk)"]
+            # Return -1 to indicate "loaded from disk" (chunk count unknown)
+            return vectorstore, -1, []
 
         # Create persistent store (first run or after reindex)
         if not data_path.exists():
@@ -577,7 +578,10 @@ def main():
 
         chunk_count = st.session_state.get("chunk_count", 0)
         doc_names = st.session_state.get("doc_names", [])
-        st.caption(f"📊 Loaded {chunk_count} chunks from {len(doc_names)} documents")
+        if chunk_count == -1:
+            st.caption(f"📊 Loaded from persistent store ({data_folder})")
+        else:
+            st.caption(f"📊 Indexed {chunk_count} chunks from {len(doc_names)} documents")
 
     else:
         # Load agent for Agentic mode

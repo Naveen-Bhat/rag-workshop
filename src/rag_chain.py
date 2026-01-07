@@ -34,7 +34,7 @@ load_dotenv()
 # CONFIGURATION
 # =============================================================================
 # Set to True to enable persistent storage (saves to chroma_db_agent/ folder)
-USE_PERSISTENT_STORE = False
+USE_PERSISTENT_STORE = True
 
 
 class CourseAdvisorRAG:
