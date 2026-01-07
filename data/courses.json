@@ -1,0 +1,122 @@
+{
+  "courses": [
+    {
+      "code": "CS101",
+      "name": "Introduction to Programming",
+      "credits": 3,
+      "prerequisites": [],
+      "instructor": "Dr. Sarah Chen",
+      "semester": "Fall/Spring",
+      "level": "Introductory",
+      "topics": ["Python", "variables", "loops", "functions", "data structures", "file I/O"],
+      "description": "Foundational course introducing programming concepts using Python. No prior experience required."
+    },
+    {
+      "code": "CS201",
+      "name": "Data Structures and Algorithms",
+      "credits": 4,
+      "prerequisites": ["CS101"],
+      "instructor": "Prof. Michael Torres",
+      "semester": "Fall/Spring",
+      "level": "Intermediate",
+      "topics": ["arrays", "linked lists", "stacks", "queues", "trees", "graphs", "sorting", "Big-O analysis"],
+      "description": "Comprehensive study of fundamental data structures and algorithms. Essential for advanced CS courses."
+    },
+    {
+      "code": "CS301",
+      "name": "Introduction to Machine Learning",
+      "credits": 4,
+      "prerequisites": ["CS201", "MATH201", "STAT101"],
+      "instructor": "Dr. Emily Watson",
+      "semester": "Fall",
+      "level": "Advanced",
+      "topics": ["supervised learning", "unsupervised learning", "regression", "classification", "neural networks", "model evaluation"],
+      "description": "Introduction to machine learning algorithms and techniques. Covers both theory and practical implementation."
+    },
+    {
+      "code": "CS401",
+      "name": "Deep Learning",
+      "credits": 4,
+      "prerequisites": ["CS301"],
+      "instructor": "Dr. James Liu",
+      "semester": "Spring",
+      "level": "Advanced",
+      "topics": ["neural networks", "CNNs", "RNNs", "transformers", "GANs", "PyTorch", "computer vision", "NLP basics"],
+      "description": "Advanced course on deep learning architectures and applications. Covers CNNs, RNNs, Transformers, and generative models."
+    },
+    {
+      "code": "CS501",
+      "name": "Natural Language Processing",
+      "credits": 4,
+      "prerequisites": ["CS401", "MATH201"],
+      "instructor": "Dr. Priya Sharma",
+      "semester": "Fall",
+      "level": "Graduate",
+      "topics": ["NLP", "transformers", "BERT", "GPT", "RAG", "text processing", "language models", "prompt engineering"],
+      "description": "Graduate-level course covering classical and modern NLP techniques, including large language models and RAG systems."
+    },
+    {
+      "code": "MATH101",
+      "name": "Calculus I",
+      "credits": 4,
+      "prerequisites": [],
+      "instructor": "Prof. Robert Anderson",
+      "semester": "Fall/Spring",
+      "level": "Introductory",
+      "topics": ["limits", "derivatives", "integrals", "optimization", "applications"],
+      "description": "Fundamental single-variable calculus covering limits, derivatives, and integrals."
+    },
+    {
+      "code": "MATH201",
+      "name": "Linear Algebra",
+      "credits": 3,
+      "prerequisites": ["MATH101"],
+      "instructor": "Dr. Lisa Park",
+      "semester": "Fall/Spring",
+      "level": "Intermediate",
+      "topics": ["vectors", "matrices", "linear transformations", "eigenvalues", "eigenvectors", "SVD", "PCA foundations"],
+      "description": "Introduction to linear algebra with applications in computer science and data science."
+    },
+    {
+      "code": "STAT101",
+      "name": "Introduction to Statistics and Probability",
+      "credits": 3,
+      "prerequisites": ["MATH101"],
+      "instructor": "Dr. Maria Gonzalez",
+      "semester": "Fall/Spring",
+      "level": "Intermediate",
+      "topics": ["probability", "distributions", "hypothesis testing", "confidence intervals", "regression", "data analysis"],
+      "description": "Comprehensive introduction to probability and statistics. Essential for machine learning and data science."
+    }
+  ],
+  "prerequisite_chains": {
+    "CS101": [],
+    "CS201": ["CS101"],
+    "CS301": ["CS201", "MATH201", "STAT101"],
+    "CS401": ["CS301"],
+    "CS501": ["CS401", "MATH201"],
+    "MATH101": [],
+    "MATH201": ["MATH101"],
+    "STAT101": ["MATH101"]
+  },
+  "learning_paths": {
+    "machine_learning": {
+      "description": "Path to Machine Learning expertise",
+      "courses": ["CS101", "MATH101", "CS201", "MATH201", "STAT101", "CS301"],
+      "optional_advanced": ["CS401", "CS501"]
+    },
+    "deep_learning": {
+      "description": "Path to Deep Learning and AI research",
+      "courses": ["CS101", "MATH101", "CS201", "MATH201", "STAT101", "CS301", "CS401"],
+      "optional_advanced": ["CS501"]
+    },
+    "nlp_specialist": {
+      "description": "Path to Natural Language Processing specialization",
+      "courses": ["CS101", "MATH101", "CS201", "MATH201", "STAT101", "CS301", "CS401", "CS501"]
+    },
+    "programming_fundamentals": {
+      "description": "Core programming foundation",
+      "courses": ["CS101", "CS201"]
+    }
+  }
+}
